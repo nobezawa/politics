@@ -53,7 +53,6 @@ class PartiesController < ApplicationController
 
   def update
     @party = Party.find(params[:id])
-
     respond_to do |format|
       if @party.update_attributes(params[:party])
         format.html { redirect_to @party, notice: 'Party was successfully updated.' }

@@ -7,7 +7,8 @@ class Party < ActiveRecord::Base
   attr_accessible(
     :party_id,
     :party_name,
-    :party_img
+    :party_img,
+    :description
   )
 
 
