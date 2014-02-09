@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+
+
+/*============================================================
+枠組み
+============================================================*/
+#container{
+  padding-top:41px;
+  width: 940px;
+  margin: 0 auto;
+}
+
+.importantPolicy{
+	margin-bottom: 20px;
+}
+
+.importantPolicy li{
+  list-style-type: none;
+  cursor: pointer;
+  padding: 5px;
+  float: left;
+}
+
+.importantPolicy .selected{
+	background: #0088cc;
+	color: #fff;
+}
+
+.clearfix:after {
+content: " ";
+display: block;
+clear: both;
+height: 0;
+}
+
+.answerImportant{
+	color:red;
+}
+
+.completeText{
+	color:red;
+}
+
+.inputChekBox{
+  display: none;
+}
+
+
+
+/*============================================================
+header
+============================================================*/
+
+
+
+
+/*============================================================
+contents
+============================================================*/
+
+
+
+
+/*============================================================
+footer
+============================================================*/

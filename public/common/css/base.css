@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------
+FileName: base.css
+----------------------------------------------- */
+html,body{
+    height:100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	color: #333333;
+	font-size: 80%;
+	text-align: left;
+	font-family:'ＭＳ Ｐゴシック', Osaka,'ヒラギノ角ゴ Pro W3';
+	/*font-family:'メイリオ',Meiryo,'ＭＳ Ｐゴシック', Osaka,'ヒラギノ角ゴ Pro W3';*/
+	line-height:160%;
+	height: 100%;
+	letter-spacing:0px;
+
+}
+*html body {
+	text-align:center;
+}
+*html div{
+	text-align:left;
+}
+html, h1, h2, h3, h4, h5, dl, dt, dd, li, ul, ol, form, div, img, table, td, th, tr{
+	margin: 0;
+	padding: 0;
+	text-align:left;
+}
+form{
+	display: inline;
+}
+ul {
+	list-style: none;
+}
+li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+a img {
+	border: none;
+    outline:none;
+}
+
+
+
+

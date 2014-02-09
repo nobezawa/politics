@@ -1,0 +1,43 @@
+<%= form_for(@party) do |f| %>
+  <% if @party.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@party.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @party.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.label :party_id %><br />
+    <%= f.text_field :party_id %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :party_name %><br />
+    <%= f.text_field :party_name %>
+  </div>
+
+  <% if @party[:party_img].present? %>
+    <div class="field">
+    <%= image_tag @party[:party_img] %>
+    </div>
+  <% end %>
+     
+
+  <div class="field">
+    <%= f.label :party_img %><br />
+    <%= f.text_field :party_img %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

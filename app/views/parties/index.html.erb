@@ -1,0 +1,26 @@
+<h2>Parties</h2>
+
+<% @parties.each do |party| %>
+
+<table>
+<tr>
+  <th>
+    <%= party.id %>
+  </th>
+  <td>
+    <%= party.party_name %>
+  </td>
+</tr>
+<tr>
+  <td><%= link_to 'Show', party %></td>
+  <td><%= link_to 'edit', edit_party_path(party) %></td>
+  <td><%= link_to 'Destroy', party, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+</table>
+
+<% end %>
+
+
+
+
+<%= link_to 'New Party', new_party_path %>

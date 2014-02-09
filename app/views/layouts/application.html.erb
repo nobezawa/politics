@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Politics</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href="/common/css/style.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="/common/css/layout.css" media="all" rel="stylesheet" type="text/css" />
+
+  <%= javascript_include_tag "application" %>
+  <script src="/common/js/voteting.js"></script>
+  
+  
+</head>
+<body>
+<!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">Bootstrap</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="/">Home</a>
+              </li>
+              <li class="">
+                <a href="/machings">Machings</a>
+              </li>
+              <li class="">
+                <a href="/questions">Questions</a>
+              </li>
+              <li class="">
+                <a href="/parties">Parties</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<div id="container">
+<%= yield %>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+
+
+<h2>投票マッチングページ</h2>
+
+
+<%= form_for(@machings) do |f| %>
+  <% @questions.each do |question| %>
+    <h3><%= question.question_content %></h3>	
+    <div class="question">
+      選択してください<br />
+      <button type="button" class="vote-btn btn-primary ansContent1" id="ye-a-q<%= question.id %>">賛成</button>
+      <button type="button" class="vote-btn btn-info ansContent2" id="ye-b-q<%= question.id %>">やや賛成</button>
+      <button type="button" class="vote-btn btn-success ansContent3" id="ne-c-q<%= question.id %>">中立</button>
+      <button type="button" class="vote-btn btn-warning ansContent4" id="no-b-q<%= question.id %>">やや反対</button>
+      <button type="button" class="vote-btn btn-danger ansContent5" id="no-a-q<%= question.id %>">反対</button>
+    </div>
+  
+ 
+   <!-- <input type="hidden" name="answer[answer_content][q<%= question.id %>]" id="question<%= question.id %>" /> -->
+   
+    <%= f.fields_for :answers do |t| %>
+      <%= t.hidden_field :answer_content, :id =>"ans#{question.id}", :class => "sum" %>
+      <%= t.hidden_field :question_id, :id=>"ans_questionID#{question.id}", :class => "sum" %>
+    <% end %>
+  
+    <p><span class="answerText<%= question.id %>"></span></p>
+  <% end %>
+
+
+
+ 
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, Maching::GENDER %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.select :age, Maching::AGE %>
+  </div>
+
+  <div class="field">
+    <%= f.label :electoral_zone %><br />
+    <%= f.select :electoral_zone, Maching::PREFECTURES.map{|zone| [zone[1], zone[0] ]} %>
+  </div>
+
+
+  <h4>興味のある政策を３つ選んでください。</h4>
+  <div class="importantPolicy clearfix">
+   <ul>
+     <li class="btnImportant" id="policy1">金融政策</li>
+     <li class="btnImportant" id="policy2">TPP経済協定</li>
+     <li class="btnImportant" id="policy3">原子力発電</li>
+     <li class="btnImportant" id="policy4">憲法改正</li>
+     <li class="btnImportant" id="policy5">公共事業</li>
+     <li class="btnImportant" id="policy6">消費税増税</li>
+     <li class="btnImportant" id="policy7">集団的自衛権</li>
+     <li class="btnImportant" id="policy8">年金制度</li>
+     <li class="btnImportant" id="policy9">被災者支援</li>
+     <li class="btnImportant" id="policy10">医療制度</li>
+   </ul>
+  </div>
+
+  <div class="inputChekBox">
+   
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy1', :class => 'importantCheck'}, '金融政策', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy2', :class => 'importantCheck'}, 'TPP経済協定', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy3', :class => 'importantCheck'}, '原子力発電', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy4', :class => 'importantCheck'}, '憲法改正', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy5', :class => 'importantCheck'}, '公共事業', false %>
+
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy6', :class => 'importantCheck'}, '消費税増税', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy7', :class => 'importantCheck'}, '集団的自衛権', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy8', :class => 'importantCheck'}, '年金制度', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy9', :class => 'importantCheck'}, '被災者支援', false %>
+       <%= check_box 'maching', 'policy', {:id => 'maching_policy10', :class => 'importantCheck'}, '医療制度', false %>
+    
+  </div>
+
+  <p><span class="answerImportant"></span></p>
+  <p><span class="completeText"></span></p>
+  <input type="hidden" name="maching[cookie_id]" value="<%= UUID.new.generate %>" />
+  <%= f.submit :id=>'machingSubmit' %>
+<% end %>
+

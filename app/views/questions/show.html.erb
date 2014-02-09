@@ -1,0 +1,10 @@
+<h2><%= @question.question_content %></h2>
+<p><%= image_tag @question.question_img %></p>
+<p><%= @question.question_description %></p>
+<% @parties.each_with_index do |party, key| %>  
+  <h3><%= party[:party_id] %>&nbsp;<%= party[:party_name] %></h3>
+  <p><%= party_content_label(@party_answers[key][:answer_content]) %></p>
+<% end %>
+
+
+<%= link_to "質問一覧へ戻る", questions_path %>

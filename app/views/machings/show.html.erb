@@ -1,0 +1,33 @@
+<h2>コメント</h2>
+
+<div class="field">
+<%= @machings.gender %>
+</div>
+
+<div class="field">
+<%= @machings.electoral_zone %>
+</div>
+
+
+<div class="field">
+<%= @machings.policy1 %>
+</div>
+
+<div class="field">
+<%= @machings.policy2 %>
+</div>
+
+<div class="field">
+<%= @machings.policy3 %>
+</div>
+<% @user_data.each_with_index do |value, key| %>
+
+<div class="field">
+	
+	<%= @parties[key].party_name %>
+	<%= value[1] %>
+	
+</div>
+
+<% end %>
+<%= link_to "マッチングへ戻る", machings_path %>

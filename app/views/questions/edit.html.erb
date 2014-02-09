@@ -1,0 +1,44 @@
+<h1>Editing Questions</h1>
+
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+      <%= f.label :質問内容 %><br />
+      <%= f.text_field :question_content %><br />
+      <% if @question[:question_img].present? %>
+        <%= image_tag @question[:question_img] %>
+      <% end %>
+      <%= f.label :画像パス %><br />
+      <%= f.text_field :question_img %><br />
+      <%= f.label :説明 %><br />
+      <%= f.text_area :question_description %><br />
+      <%= f.label :質問番号 %><br />
+      <%= f.text_field :question_id %>
+  </div>
+
+    <% @parties.each_with_index do |party, key| %>   
+    <h3><%= party[:party_name] %></h3>
+    <%= f.fields_for("party_answers_attributes[]", f.object.party_answers.build) do |t| %>
+  　  <div class="field">
+        <%= t.select :answer_content, {"賛成" => 1, "やや賛成" => 2, "中立" => 3, "やや反対" => 4, "反対" => 5}, :selected => @question.party_answers[key][:answer_content] %>
+        <%= t.hidden_field :party_id, :value => party[:id] %>
+   　</div>
+     <% end %> 
+   <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @question %> |
+<%= link_to 'Back', questions_path %>
