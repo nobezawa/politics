@@ -1,33 +1,12 @@
-<h2>コメント</h2>
+<h2>あなたが考えに近い政党順位</h2>
 
-<div class="field">
-<%= @machings.gender %>
-</div>
-
-<div class="field">
-<%= @machings.electoral_zone %>
-</div>
-
-
-<div class="field">
-<%= @machings.policy1 %>
-</div>
-
-<div class="field">
-<%= @machings.policy2 %>
-</div>
-
-<div class="field">
-<%= @machings.policy3 %>
-</div>
+<table class="table">
 <% @user_data.each_with_index do |value, key| %>
-
-<div class="field">
-	
-	<%= @parties[key].party_name %>
-	<%= value[1] %>
-	
-</div>
-
+<tr>
+  <th style="width:10%;"><%= key + 1 %>位</th>
+  <td style="width:80%;"><%= @parties[key].party_name %></td>
+  <td style="width:10%;"><%= link_to '政党詳細', {:controller => 'parties', :action => 'show', :id => @parties[key].id} %></td>
+</tr>
 <% end %>
+</table>
 <%= link_to "マッチングへ戻る", machings_path %>
